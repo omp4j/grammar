@@ -1,4 +1,4 @@
-// Generated from src/Java8.g4 by ANTLR 4.4
+// Generated from Java8.g4 by ANTLR 4.4
 package org.omp4j.grammar;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
