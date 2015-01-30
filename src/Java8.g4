@@ -70,7 +70,12 @@ literal
     |   CharacterLiteral
     |   StringLiteral
     |   NullLiteral
+    |   ompThreadNum    // omp4j
+    |   ompNumThreads   // omp4j
     ;
+
+ompThreadNum  : OMPTHREADNUM  ;
+ompNumThreads : OMPNUMTHREADS ;
 
 /*
  * Productions from §4 (Types, Values, and Variables)
@@ -1401,6 +1406,10 @@ TRY : 'try';
 VOID : 'void';
 VOLATILE : 'volatile';
 WHILE : 'while';
+
+// omp4j thread-id constants
+OMPTHREADNUM  : 'OMP_THREAD_NUM'  ;
+OMPNUMTHREADS : 'OMP_NUM_THREADS' ;
 
 // §3.10.1 Integer Literals
 

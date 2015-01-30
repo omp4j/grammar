@@ -11,7 +11,9 @@ ompUnit : OMP (
                 ompMaster      |
                 ompBarrier     |
                 ompAtomic      |
-                ompCritical
+                ompCritical    |
+                ompThreadNum   |
+                ompNumThreads
                ) EOF ;
 
 ompParallel
@@ -30,7 +32,7 @@ ompParallel
         // Ensure that no duplicates have been provided
         // schedule, threadNum and accessModifiers
         : {!$ompParallel::names.contains("schedule")}? ompSchedule {$ompParallel::names.add("schedule");}
-        | {!$ompParallel::names.contains("threadNum")}? ompThreadNum {$ompParallel::names.add("threadNum");}
+        | {!$ompParallel::names.contains("threadNum")}? threadNum {$ompParallel::names.add("threadNum");}
         | ompAccessModifier
         ;
 
@@ -50,7 +52,7 @@ ompParallelFor
         // Ensure that no duplicates have been provided
         // schedule, threadNum and accessModifiers
         : {!$ompParallelFor::names.contains("schedule")}? ompSchedule {$ompParallelFor::names.add("schedule");}
-        | {!$ompParallelFor::names.contains("threadNum")}? ompThreadNum {$ompParallelFor::names.add("threadNum");}
+        | {!$ompParallelFor::names.contains("threadNum")}? threadNum {$ompParallelFor::names.add("threadNum");}
         | ompAccessModifier
         ;
 
@@ -62,14 +64,17 @@ ompMaster      : MASTER                                  ;
 ompBarrier     : BARRIER                                 ;
 ompAtomic      : ATOMIC                                  ;
 ompCritical    : CRITICAL ( '(' ompVar ')' )?            ;
+ompThreadNum   : OMPTHREADNUM                            ;
+ompNumThreads  : OMPNUMTHREADS                           ;
 
 ompSchedule       : SCHEDULE '(' ( STATIC | DYNAMIC ) ')'  ;
-ompThreadNum      : THREAD_NUM '(' ompNumber ')'           ;
+threadNum      : THREAD_NUM '(' ompNumber ')'           ;
 ompAccessModifier : ( PUBLIC | PRIVATE ) '(' ompVars ')'   ;
 
 ompVars   : ( ompVar | ( ompVar ',' )+ ompVar ) ;
 ompVar    : VAR                                 ;
 ompNumber : NUMBER                              ;
+
 
 // LEXER RULES
 OMP      : 'omp'      ;
@@ -82,6 +87,9 @@ MASTER   : 'master'   ;
 BARRIER  : 'barrier'  ;
 ATOMIC   : 'atomic'   ;
 CRITICAL : 'critical' ;
+
+OMPTHREADNUM  : 'OMP_THREAD_NUM'  ;
+OMPNUMTHREADS : 'OMP_NUM_THREADS' ;
 
 PUBLIC     : 'public'    ;
 PRIVATE    : 'private'   ;
