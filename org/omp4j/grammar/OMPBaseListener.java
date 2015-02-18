@@ -17,18 +17,6 @@ public class OMPBaseListener implements OMPListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOmpParallelForModifiers(@NotNull OMPParser.OmpParallelForModifiersContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -36,18 +24,6 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOmpParallelForModifiers(@NotNull OMPParser.OmpParallelForModifiersContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -65,18 +41,6 @@ public class OMPBaseListener implements OMPListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOmpFor(@NotNull OMPParser.OmpForContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -84,30 +48,6 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOmpFor(@NotNull OMPParser.OmpForContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpVar(@NotNull OMPParser.OmpVarContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpVar(@NotNull OMPParser.OmpVarContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpMaster(@NotNull OMPParser.OmpMasterContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpMaster(@NotNull OMPParser.OmpMasterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -137,18 +77,6 @@ public class OMPBaseListener implements OMPListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOmpSection(@NotNull OMPParser.OmpSectionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -156,6 +84,162 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOmpSection(@NotNull OMPParser.OmpSectionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpSections(@NotNull OMPParser.OmpSectionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpSections(@NotNull OMPParser.OmpSectionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpSingle(@NotNull OMPParser.OmpSingleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpSingle(@NotNull OMPParser.OmpSingleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpAtomic(@NotNull OMPParser.OmpAtomicContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpAtomic(@NotNull OMPParser.OmpAtomicContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpVar(@NotNull OMPParser.OmpVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpVar(@NotNull OMPParser.OmpVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpMaster(@NotNull OMPParser.OmpMasterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpMaster(@NotNull OMPParser.OmpMasterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -221,54 +305,6 @@ public class OMPBaseListener implements OMPListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOmpSections(@NotNull OMPParser.OmpSectionsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpSections(@NotNull OMPParser.OmpSectionsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpSingle(@NotNull OMPParser.OmpSingleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpSingle(@NotNull OMPParser.OmpSingleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpAtomic(@NotNull OMPParser.OmpAtomicContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpAtomic(@NotNull OMPParser.OmpAtomicContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterThreadNum(@NotNull OMPParser.ThreadNumContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -276,18 +312,6 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitThreadNum(@NotNull OMPParser.ThreadNumContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

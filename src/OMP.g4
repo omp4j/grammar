@@ -56,8 +56,27 @@ ompParallelFor
         | ompAccessModifier
         ;
 
+ompSections
+    locals [static java.util.HashSet<String> names]
+    @init {
+        OmpSectionsContext.names = new java.util.HashSet<String>();
+    }
+    : SECTIONS sectionsModifiers ;
+
+    sectionsModifiers
+        : {$ompParallelFor::names.size() < 2}? sectionsModifier sectionsModifiers
+        | {$ompParallelFor::names.size() <= 2}?
+        ;
+
+    sectionsModifier
+        // Ensure that no duplicates have been provided
+        // schedule and threadNum
+        : {!$ompParallelFor::names.contains("schedule")}? ompSchedule {$ompParallelFor::names.add("schedule");}
+        | {!$ompParallelFor::names.contains("threadNum")}? threadNum {$ompParallelFor::names.add("threadNum");}
+        ;
+
+
 ompFor         :          FOR         ompAccessModifier* ;
-ompSections    : SECTIONS     ompSchedule?               ;
 ompSection     : SECTION                                 ;
 ompSingle      : SINGLE                                  ;
 ompMaster      : MASTER                                  ;
