@@ -1889,6 +1889,18 @@ public class Java8BaseListener implements Java8Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSuperRule(@NotNull Java8Parser.SuperRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSuperRule(@NotNull Java8Parser.SuperRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPrimary(@NotNull Java8Parser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}

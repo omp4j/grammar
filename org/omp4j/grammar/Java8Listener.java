@@ -1569,6 +1569,16 @@ public interface Java8Listener extends ParseTreeListener {
 	 */
 	void exitTypeBound(@NotNull Java8Parser.TypeBoundContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Java8Parser#superRule}.
+	 * @param ctx the parse tree
+	 */
+	void enterSuperRule(@NotNull Java8Parser.SuperRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Java8Parser#superRule}.
+	 * @param ctx the parse tree
+	 */
+	void exitSuperRule(@NotNull Java8Parser.SuperRuleContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Java8Parser#primary}.
 	 * @param ctx the parse tree
 	 */

@@ -109,6 +109,8 @@ floatingPointType
     |   'double'
     ;
 
+superRule : SUPER ;
+
 referenceType
     :   classOrInterfaceType
     |   typeVariable
@@ -199,7 +201,7 @@ wildcard
 
 wildcardBounds
     :   'extends' referenceType
-    |   'super' referenceType
+    |   superRule referenceType
     ;
 
 /*
@@ -545,9 +547,9 @@ constructorBody
 
 explicitConstructorInvocation
     :   typeArguments? 'this' '(' argumentList? ')' ';'
-    |   typeArguments? 'super' '(' argumentList? ')' ';'
-    |   expressionName '.' typeArguments? 'super' '(' argumentList? ')' ';'
-    |   primary '.' typeArguments? 'super' '(' argumentList? ')' ';'
+    |   typeArguments? superRule '(' argumentList? ')' ';'
+    |   expressionName '.' typeArguments? superRule '(' argumentList? ')' ';'
+    |   primary '.' typeArguments? superRule '(' argumentList? ')' ';'
     ;
 
 enumDeclaration
@@ -1076,8 +1078,8 @@ typeArgumentsOrDiamond
 
 fieldAccess
     :   primary '.' Identifier
-    |   'super' '.' Identifier
-    |   typeName '.' 'super' '.' Identifier
+    |   superRule '.' Identifier
+    |   typeName '.' superRule '.' Identifier
     ;
 
 fieldAccess_lf_primary
@@ -1085,8 +1087,8 @@ fieldAccess_lf_primary
     ;
 
 fieldAccess_lfno_primary
-    :   'super' '.' Identifier
-    |   typeName '.' 'super' '.' Identifier
+    :   superRule '.' Identifier
+    |   typeName '.' superRule '.' Identifier
     ;
 
 arrayAccess
@@ -1117,8 +1119,8 @@ methodInvocation
     |   typeName '.' typeArguments? Identifier '(' argumentList? ')'
     |   expressionName '.' typeArguments? Identifier '(' argumentList? ')'
     |   primary '.' typeArguments? Identifier '(' argumentList? ')'
-    |   'super' '.' typeArguments? Identifier '(' argumentList? ')'
-    |   typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+    |   superRule '.' typeArguments? Identifier '(' argumentList? ')'
+    |   typeName '.' superRule '.' typeArguments? Identifier '(' argumentList? ')'
     ;
 
 methodInvocation_lf_primary
@@ -1129,8 +1131,8 @@ methodInvocation_lfno_primary
     :   methodName '(' argumentList? ')'
     |   typeName '.' typeArguments? Identifier '(' argumentList? ')'
     |   expressionName '.' typeArguments? Identifier '(' argumentList? ')'
-    |   'super' '.' typeArguments? Identifier '(' argumentList? ')'
-    |   typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+    |   superRule '.' typeArguments? Identifier '(' argumentList? ')'
+    |   typeName '.' superRule '.' typeArguments? Identifier '(' argumentList? ')'
     ;
 
 argumentList
@@ -1141,8 +1143,8 @@ methodReference
     :   expressionName '::' typeArguments? Identifier
     |   referenceType '::' typeArguments? Identifier
     |   primary '::' typeArguments? Identifier
-    |   'super' '::' typeArguments? Identifier
-    |   typeName '.' 'super' '::' typeArguments? Identifier
+    |   superRule '::' typeArguments? Identifier
+    |   typeName '.' superRule '::' typeArguments? Identifier
     |   classType '::' typeArguments? 'new'
     |   arrayType '::' 'new'
     ;
@@ -1154,8 +1156,8 @@ methodReference_lf_primary
 methodReference_lfno_primary
     :   expressionName '::' typeArguments? Identifier
     |   referenceType '::' typeArguments? Identifier
-    |   'super' '::' typeArguments? Identifier
-    |   typeName '.' 'super' '::' typeArguments? Identifier
+    |   superRule '::' typeArguments? Identifier
+    |   typeName '.' superRule '::' typeArguments? Identifier
     |   classType '::' typeArguments? 'new'
     |   arrayType '::' 'new'
     ;

@@ -948,6 +948,12 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeBound(@NotNull Java8Parser.TypeBoundContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Java8Parser#superRule}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSuperRule(@NotNull Java8Parser.SuperRuleContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Java8Parser#primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
