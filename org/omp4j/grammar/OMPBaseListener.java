@@ -137,6 +137,18 @@ public class OMPBaseListener implements OMPListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOmpFirstPrivate(@NotNull OMPParser.OmpFirstPrivateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpFirstPrivate(@NotNull OMPParser.OmpFirstPrivateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -180,6 +192,18 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -240,6 +264,18 @@ public class OMPBaseListener implements OMPListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOmpPublic(@NotNull OMPParser.OmpPublicContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOmpPublic(@NotNull OMPParser.OmpPublicContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

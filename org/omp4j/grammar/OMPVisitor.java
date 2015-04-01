@@ -72,6 +72,12 @@ public interface OMPVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOmpAtomic(@NotNull OMPParser.OmpAtomicContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link OMPParser#ompFirstPrivate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOmpFirstPrivate(@NotNull OMPParser.OmpFirstPrivateContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link OMPParser#sectionsModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -95,6 +101,12 @@ public interface OMPVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OMPParser#ompPrivate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OMPParser#ompSchedule}.
 	 * @param ctx the parse tree
@@ -125,6 +137,12 @@ public interface OMPVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OMPParser#ompPublic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOmpPublic(@NotNull OMPParser.OmpPublicContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OMPParser#ompThreadNum}.
 	 * @param ctx the parse tree

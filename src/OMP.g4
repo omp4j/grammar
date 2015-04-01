@@ -31,8 +31,8 @@ ompParallel
     ompParallelModifier
         // Ensure that no duplicates have been provided
         // schedule, threadNum and accessModifiers
-        : {!$ompParallel::names.contains("schedule")}? ompSchedule {$ompParallel::names.add("schedule");}
-        | {!$ompParallel::names.contains("threadNum")}? threadNum {$ompParallel::names.add("threadNum");}
+        : {!$ompParallel::names.contains("schedule")}?  ompSchedule {$ompParallel::names.add("schedule");}
+        | {!$ompParallel::names.contains("threadNum")}? threadNum   {$ompParallel::names.add("threadNum");}
         | ompAccessModifier
         ;
 
@@ -51,8 +51,8 @@ ompParallelFor
     ompParallelForModifier
         // Ensure that no duplicates have been provided
         // schedule, threadNum and accessModifiers
-        : {!$ompParallelFor::names.contains("schedule")}? ompSchedule {$ompParallelFor::names.add("schedule");}
-        | {!$ompParallelFor::names.contains("threadNum")}? threadNum {$ompParallelFor::names.add("threadNum");}
+        : {!$ompParallelFor::names.contains("schedule")}?  ompSchedule {$ompParallelFor::names.add("schedule");}
+        | {!$ompParallelFor::names.contains("threadNum")}? threadNum   {$ompParallelFor::names.add("threadNum");}
         | ompAccessModifier
         ;
 
@@ -71,24 +71,29 @@ ompSections
     sectionsModifier
         // Ensure that no duplicates have been provided
         // schedule and threadNum
-        : {!$ompParallelFor::names.contains("schedule")}? ompSchedule {$ompParallelFor::names.add("schedule");}
-        | {!$ompParallelFor::names.contains("threadNum")}? threadNum {$ompParallelFor::names.add("threadNum");}
+        : {!$ompParallelFor::names.contains("schedule")}?  ompSchedule {$ompParallelFor::names.add("schedule");}
+        | {!$ompParallelFor::names.contains("threadNum")}? threadNum   {$ompParallelFor::names.add("threadNum");}
         ;
 
 
-ompFor         :          FOR         ompAccessModifier* ;
-ompSection     : SECTION                                 ;
-ompSingle      : SINGLE                                  ;
-ompMaster      : MASTER                                  ;
-ompBarrier     : BARRIER                                 ;
-ompAtomic      : ATOMIC                                  ;
-ompCritical    : CRITICAL ( '(' ompVar ')' )?            ;
-ompThreadNum   : OMPTHREADNUM                            ;
-ompNumThreads  : OMPNUMTHREADS                           ;
+ompFor          : FOR ompAccessModifier*       ;
+ompSection      : SECTION                      ;
+ompSingle       : SINGLE                       ;
+ompMaster       : MASTER                       ;
+ompBarrier      : BARRIER                      ;
+ompAtomic       : ATOMIC                       ;
+ompCritical     : CRITICAL ( '(' ompVar ')' )? ;
 
-ompSchedule       : SCHEDULE '(' ( STATIC | DYNAMIC ) ')'  ;
-threadNum      : THREAD_NUM '(' ompNumber ')'           ;
-ompAccessModifier : ( PUBLIC | PRIVATE ) '(' ompVars ')'   ;
+ompThreadNum    : OMPTHREADNUM  ;
+ompNumThreads   : OMPNUMTHREADS ;
+
+ompPublic       : PUBLIC       ;
+ompPrivate      : PRIVATE      ;
+ompFirstPrivate : FIRSTPRIVATE ;
+
+ompSchedule       : SCHEDULE '(' ( STATIC | DYNAMIC ) ')'                          ;
+threadNum         : THREAD_NUM '(' ompNumber ')'                                   ;
+ompAccessModifier : ( ompPublic | ompPrivate | ompFirstPrivate ) '(' ompVars ')'   ;
 
 ompVars   : ( ompVar | ( ompVar ',' )+ ompVar ) ;
 ompVar    : VAR                                 ;
@@ -110,12 +115,13 @@ CRITICAL : 'critical' ;
 OMPTHREADNUM  : 'OMP_THREAD_NUM'  ;
 OMPNUMTHREADS : 'OMP_NUM_THREADS' ;
 
-PUBLIC     : 'public'    ;
-PRIVATE    : 'private'   ;
-SCHEDULE   : 'schedule'  ;
-STATIC     : 'static'    ;
-DYNAMIC    : 'dynamic'   ;
-THREAD_NUM : 'threadNum' ;
+PUBLIC       : 'public'       ;
+PRIVATE      : 'private'      ;
+FIRSTPRIVATE : 'firstprivate' ;
+SCHEDULE     : 'schedule'     ;
+STATIC       : 'static'       ;
+DYNAMIC      : 'dynamic'      ;
+THREAD_NUM   : 'threadNum'    ;
 
 VAR    : JavaLetter JavaLetterOrDigit* ;
 NUMBER : Digits                        ;

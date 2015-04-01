@@ -88,6 +88,13 @@ public class OMPBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements OM
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitOmpFirstPrivate(@NotNull OMPParser.OmpFirstPrivateContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -110,6 +117,13 @@ public class OMPBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements OM
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -145,6 +159,13 @@ public class OMPBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements OM
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitOmpPublic(@NotNull OMPParser.OmpPublicContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
