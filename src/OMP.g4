@@ -91,7 +91,7 @@ ompPublic       : PUBLIC       ;
 ompPrivate      : PRIVATE      ;
 ompFirstPrivate : FIRSTPRIVATE ;
 
-ompSchedule       : SCHEDULE '(' ( STATIC | DYNAMIC ) ')'                          ;
+ompSchedule       : SCHEDULE '(' ( . )*? ')'                          ;
 threadNum         : THREAD_NUM '(' ompNumber ')'                                   ;
 ompAccessModifier : ( ompPublic | ompPrivate | ompFirstPrivate ) '(' ompVars ')'   ;
 
@@ -119,13 +119,12 @@ PUBLIC       : 'public'       ;
 PRIVATE      : 'private'      ;
 FIRSTPRIVATE : 'firstprivate' ;
 SCHEDULE     : 'schedule'     ;
-STATIC       : 'static'       ;
-DYNAMIC      : 'dynamic'      ;
 THREAD_NUM   : 'threadNum'    ;
 
-VAR    : JavaLetter JavaLetterOrDigit* ;
-NUMBER : Digits                        ;
-WS     : [ \t\r\n\u000C]+ -> skip      ;
+VAR      : JavaLetter JavaLetterOrDigit* ;
+FULLNAME : JavaLetter JavaLetterOrDigit* ;
+NUMBER   : Digits                        ;
+WS       : [ \t\r\n\u000C]+ -> skip      ;
 
 // following code was taken from:
 // https://github.com/antlr/grammars-v4/blob/master/java8/Java8.g4

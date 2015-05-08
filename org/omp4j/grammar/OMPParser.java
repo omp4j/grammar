@@ -20,13 +20,12 @@ public class OMPParser extends Parser {
 		T__2=1, T__1=2, T__0=3, OMP=4, PARALLEL=5, FOR=6, SECTIONS=7, SECTION=8, 
 		SINGLE=9, MASTER=10, BARRIER=11, ATOMIC=12, CRITICAL=13, OMPTHREADNUM=14, 
 		OMPNUMTHREADS=15, PUBLIC=16, PRIVATE=17, FIRSTPRIVATE=18, SCHEDULE=19, 
-		STATIC=20, DYNAMIC=21, THREAD_NUM=22, VAR=23, NUMBER=24, WS=25;
+		THREAD_NUM=20, VAR=21, FULLNAME=22, NUMBER=23, WS=24;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'('", "')'", "','", "'omp'", "'parallel'", "'for'", "'sections'", 
 		"'section'", "'single'", "'master'", "'barrier'", "'atomic'", "'critical'", 
 		"'OMP_THREAD_NUM'", "'OMP_NUM_THREADS'", "'public'", "'private'", "'firstprivate'", 
-		"'schedule'", "'static'", "'dynamic'", "'threadNum'", "VAR", "NUMBER", 
-		"WS"
+		"'schedule'", "'threadNum'", "VAR", "FULLNAME", "NUMBER", "WS"
 	};
 	public static final int
 		RULE_ompUnit = 0, RULE_ompParallel = 1, RULE_ompParallelModifiers = 2, 
@@ -1270,8 +1269,6 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpScheduleContext extends ParserRuleContext {
-		public TerminalNode STATIC() { return getToken(OMPParser.STATIC, 0); }
-		public TerminalNode DYNAMIC() { return getToken(OMPParser.DYNAMIC, 0); }
 		public TerminalNode SCHEDULE() { return getToken(OMPParser.SCHEDULE, 0); }
 		public OmpScheduleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1295,19 +1292,29 @@ public class OMPParser extends Parser {
 	public final OmpScheduleContext ompSchedule() throws RecognitionException {
 		OmpScheduleContext _localctx = new OmpScheduleContext(_ctx, getState());
 		enterRule(_localctx, 44, RULE_ompSchedule);
-		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(169); match(SCHEDULE);
 			setState(170); match(T__2);
-			setState(171);
-			_la = _input.LA(1);
-			if ( !(_la==STATIC || _la==DYNAMIC) ) {
-			_errHandler.recoverInline(this);
+			setState(174);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
+			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1+1 ) {
+					{
+					{
+					setState(171);
+					matchWildcard();
+					}
+					} 
+				}
+				setState(176);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			}
-			consume();
-			setState(172); match(T__1);
+			setState(177); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1351,10 +1358,10 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(174); match(THREAD_NUM);
-			setState(175); match(T__2);
-			setState(176); ompNumber();
-			setState(177); match(T__1);
+			setState(179); match(THREAD_NUM);
+			setState(180); match(T__2);
+			setState(181); ompNumber();
+			setState(182); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1406,29 +1413,29 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(182);
+			setState(187);
 			switch (_input.LA(1)) {
 			case PUBLIC:
 				{
-				setState(179); ompPublic();
+				setState(184); ompPublic();
 				}
 				break;
 			case PRIVATE:
 				{
-				setState(180); ompPrivate();
+				setState(185); ompPrivate();
 				}
 				break;
 			case FIRSTPRIVATE:
 				{
-				setState(181); ompFirstPrivate();
+				setState(186); ompFirstPrivate();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(184); match(T__2);
-			setState(185); ompVars();
-			setState(186); match(T__1);
+			setState(189); match(T__2);
+			setState(190); ompVars();
+			setState(191); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1475,16 +1482,16 @@ public class OMPParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			setState(203);
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(188); ompVar();
+				setState(193); ompVar();
 				}
 				break;
 			case 2:
 				{
-				setState(192); 
+				setState(197); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -1492,19 +1499,19 @@ public class OMPParser extends Parser {
 					case 1:
 						{
 						{
-						setState(189); ompVar();
-						setState(190); match(T__0);
+						setState(194); ompVar();
+						setState(195); match(T__0);
 						}
 						}
 						break;
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(194); 
+					setState(199); 
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-				setState(196); ompVar();
+				setState(201); ompVar();
 				}
 				break;
 			}
@@ -1548,7 +1555,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(200); match(VAR);
+			setState(205); match(VAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1589,7 +1596,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(202); match(NUMBER);
+			setState(207); match(NUMBER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1650,7 +1657,7 @@ public class OMPParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\33\u00cf\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\32\u00d4\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -1662,54 +1669,56 @@ public class OMPParser extends Parser {
 		"\13\3\13\3\13\5\13\u0088\n\13\3\f\3\f\7\f\u008c\n\f\f\f\16\f\u008f\13"+
 		"\f\3\r\3\r\3\16\3\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\22\3\22"+
 		"\3\22\5\22\u00a0\n\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27"+
-		"\3\30\3\30\3\30\3\30\3\30\3\31\3\31\3\31\3\31\3\31\3\32\3\32\3\32\5\32"+
-		"\u00b9\n\32\3\32\3\32\3\32\3\32\3\33\3\33\3\33\3\33\6\33\u00c3\n\33\r"+
-		"\33\16\33\u00c4\3\33\3\33\5\33\u00c9\n\33\3\34\3\34\3\35\3\35\3\35\2\2"+
-		"\36\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668\2\3\3"+
-		"\2\26\27\u00cb\2:\3\2\2\2\4K\3\2\2\2\6R\3\2\2\2\b]\3\2\2\2\n_\3\2\2\2"+
-		"\fh\3\2\2\2\16s\3\2\2\2\20u\3\2\2\2\22}\3\2\2\2\24\u0087\3\2\2\2\26\u0089"+
-		"\3\2\2\2\30\u0090\3\2\2\2\32\u0092\3\2\2\2\34\u0094\3\2\2\2\36\u0096\3"+
-		"\2\2\2 \u0098\3\2\2\2\"\u009a\3\2\2\2$\u00a1\3\2\2\2&\u00a3\3\2\2\2(\u00a5"+
-		"\3\2\2\2*\u00a7\3\2\2\2,\u00a9\3\2\2\2.\u00ab\3\2\2\2\60\u00b0\3\2\2\2"+
-		"\62\u00b8\3\2\2\2\64\u00c8\3\2\2\2\66\u00ca\3\2\2\28\u00cc\3\2\2\2:G\7"+
-		"\6\2\2;H\5\4\3\2<H\5\n\6\2=H\5\26\f\2>H\5\20\t\2?H\5\30\r\2@H\5\32\16"+
-		"\2AH\5\34\17\2BH\5\36\20\2CH\5 \21\2DH\5\"\22\2EH\5$\23\2FH\5&\24\2G;"+
-		"\3\2\2\2G<\3\2\2\2G=\3\2\2\2G>\3\2\2\2G?\3\2\2\2G@\3\2\2\2GA\3\2\2\2G"+
-		"B\3\2\2\2GC\3\2\2\2GD\3\2\2\2GE\3\2\2\2GF\3\2\2\2HI\3\2\2\2IJ\7\2\2\3"+
-		"J\3\3\2\2\2KL\7\7\2\2LM\5\6\4\2M\5\3\2\2\2NO\5\b\5\2OP\5\6\4\2PS\3\2\2"+
-		"\2QS\3\2\2\2RN\3\2\2\2RQ\3\2\2\2S\7\3\2\2\2TU\6\5\2\3UV\5.\30\2VW\b\5"+
-		"\1\2W^\3\2\2\2XY\6\5\3\3YZ\5\60\31\2Z[\b\5\1\2[^\3\2\2\2\\^\5\62\32\2"+
-		"]T\3\2\2\2]X\3\2\2\2]\\\3\2\2\2^\t\3\2\2\2_`\7\7\2\2`a\7\b\2\2ab\5\f\7"+
-		"\2b\13\3\2\2\2cd\6\7\4\3de\5\16\b\2ef\5\f\7\2fi\3\2\2\2gi\6\7\5\3hc\3"+
-		"\2\2\2hg\3\2\2\2i\r\3\2\2\2jk\6\b\6\3kl\5.\30\2lm\b\b\1\2mt\3\2\2\2no"+
-		"\6\b\7\3op\5\60\31\2pq\b\b\1\2qt\3\2\2\2rt\5\62\32\2sj\3\2\2\2sn\3\2\2"+
-		"\2sr\3\2\2\2t\17\3\2\2\2uv\7\t\2\2vw\5\22\n\2w\21\3\2\2\2xy\6\n\b\3yz"+
-		"\5\24\13\2z{\5\22\n\2{~\3\2\2\2|~\6\n\t\3}x\3\2\2\2}|\3\2\2\2~\23\3\2"+
-		"\2\2\177\u0080\6\13\n\3\u0080\u0081\5.\30\2\u0081\u0082\b\13\1\2\u0082"+
-		"\u0088\3\2\2\2\u0083\u0084\6\13\13\3\u0084\u0085\5\60\31\2\u0085\u0086"+
-		"\b\13\1\2\u0086\u0088\3\2\2\2\u0087\177\3\2\2\2\u0087\u0083\3\2\2\2\u0088"+
-		"\25\3\2\2\2\u0089\u008d\7\b\2\2\u008a\u008c\5\62\32\2\u008b\u008a\3\2"+
-		"\2\2\u008c\u008f\3\2\2\2\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e"+
-		"\27\3\2\2\2\u008f\u008d\3\2\2\2\u0090\u0091\7\n\2\2\u0091\31\3\2\2\2\u0092"+
-		"\u0093\7\13\2\2\u0093\33\3\2\2\2\u0094\u0095\7\f\2\2\u0095\35\3\2\2\2"+
-		"\u0096\u0097\7\r\2\2\u0097\37\3\2\2\2\u0098\u0099\7\16\2\2\u0099!\3\2"+
-		"\2\2\u009a\u009f\7\17\2\2\u009b\u009c\7\3\2\2\u009c\u009d\5\66\34\2\u009d"+
-		"\u009e\7\4\2\2\u009e\u00a0\3\2\2\2\u009f\u009b\3\2\2\2\u009f\u00a0\3\2"+
-		"\2\2\u00a0#\3\2\2\2\u00a1\u00a2\7\20\2\2\u00a2%\3\2\2\2\u00a3\u00a4\7"+
-		"\21\2\2\u00a4\'\3\2\2\2\u00a5\u00a6\7\22\2\2\u00a6)\3\2\2\2\u00a7\u00a8"+
-		"\7\23\2\2\u00a8+\3\2\2\2\u00a9\u00aa\7\24\2\2\u00aa-\3\2\2\2\u00ab\u00ac"+
-		"\7\25\2\2\u00ac\u00ad\7\3\2\2\u00ad\u00ae\t\2\2\2\u00ae\u00af\7\4\2\2"+
-		"\u00af/\3\2\2\2\u00b0\u00b1\7\30\2\2\u00b1\u00b2\7\3\2\2\u00b2\u00b3\5"+
-		"8\35\2\u00b3\u00b4\7\4\2\2\u00b4\61\3\2\2\2\u00b5\u00b9\5(\25\2\u00b6"+
-		"\u00b9\5*\26\2\u00b7\u00b9\5,\27\2\u00b8\u00b5\3\2\2\2\u00b8\u00b6\3\2"+
-		"\2\2\u00b8\u00b7\3\2\2\2\u00b9\u00ba\3\2\2\2\u00ba\u00bb\7\3\2\2\u00bb"+
-		"\u00bc\5\64\33\2\u00bc\u00bd\7\4\2\2\u00bd\63\3\2\2\2\u00be\u00c9\5\66"+
-		"\34\2\u00bf\u00c0\5\66\34\2\u00c0\u00c1\7\5\2\2\u00c1\u00c3\3\2\2\2\u00c2"+
-		"\u00bf\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4\u00c2\3\2\2\2\u00c4\u00c5\3\2"+
-		"\2\2\u00c5\u00c6\3\2\2\2\u00c6\u00c7\5\66\34\2\u00c7\u00c9\3\2\2\2\u00c8"+
-		"\u00be\3\2\2\2\u00c8\u00c2\3\2\2\2\u00c9\65\3\2\2\2\u00ca\u00cb\7\31\2"+
-		"\2\u00cb\67\3\2\2\2\u00cc\u00cd\7\32\2\2\u00cd9\3\2\2\2\16GR]hs}\u0087"+
-		"\u008d\u009f\u00b8\u00c4\u00c8";
+		"\3\30\3\30\3\30\7\30\u00af\n\30\f\30\16\30\u00b2\13\30\3\30\3\30\3\31"+
+		"\3\31\3\31\3\31\3\31\3\32\3\32\3\32\5\32\u00be\n\32\3\32\3\32\3\32\3\32"+
+		"\3\33\3\33\3\33\3\33\6\33\u00c8\n\33\r\33\16\33\u00c9\3\33\3\33\5\33\u00ce"+
+		"\n\33\3\34\3\34\3\35\3\35\3\35\3\u00b0\2\36\2\4\6\b\n\f\16\20\22\24\26"+
+		"\30\32\34\36 \"$&(*,.\60\62\64\668\2\2\u00d1\2:\3\2\2\2\4K\3\2\2\2\6R"+
+		"\3\2\2\2\b]\3\2\2\2\n_\3\2\2\2\fh\3\2\2\2\16s\3\2\2\2\20u\3\2\2\2\22}"+
+		"\3\2\2\2\24\u0087\3\2\2\2\26\u0089\3\2\2\2\30\u0090\3\2\2\2\32\u0092\3"+
+		"\2\2\2\34\u0094\3\2\2\2\36\u0096\3\2\2\2 \u0098\3\2\2\2\"\u009a\3\2\2"+
+		"\2$\u00a1\3\2\2\2&\u00a3\3\2\2\2(\u00a5\3\2\2\2*\u00a7\3\2\2\2,\u00a9"+
+		"\3\2\2\2.\u00ab\3\2\2\2\60\u00b5\3\2\2\2\62\u00bd\3\2\2\2\64\u00cd\3\2"+
+		"\2\2\66\u00cf\3\2\2\28\u00d1\3\2\2\2:G\7\6\2\2;H\5\4\3\2<H\5\n\6\2=H\5"+
+		"\26\f\2>H\5\20\t\2?H\5\30\r\2@H\5\32\16\2AH\5\34\17\2BH\5\36\20\2CH\5"+
+		" \21\2DH\5\"\22\2EH\5$\23\2FH\5&\24\2G;\3\2\2\2G<\3\2\2\2G=\3\2\2\2G>"+
+		"\3\2\2\2G?\3\2\2\2G@\3\2\2\2GA\3\2\2\2GB\3\2\2\2GC\3\2\2\2GD\3\2\2\2G"+
+		"E\3\2\2\2GF\3\2\2\2HI\3\2\2\2IJ\7\2\2\3J\3\3\2\2\2KL\7\7\2\2LM\5\6\4\2"+
+		"M\5\3\2\2\2NO\5\b\5\2OP\5\6\4\2PS\3\2\2\2QS\3\2\2\2RN\3\2\2\2RQ\3\2\2"+
+		"\2S\7\3\2\2\2TU\6\5\2\3UV\5.\30\2VW\b\5\1\2W^\3\2\2\2XY\6\5\3\3YZ\5\60"+
+		"\31\2Z[\b\5\1\2[^\3\2\2\2\\^\5\62\32\2]T\3\2\2\2]X\3\2\2\2]\\\3\2\2\2"+
+		"^\t\3\2\2\2_`\7\7\2\2`a\7\b\2\2ab\5\f\7\2b\13\3\2\2\2cd\6\7\4\3de\5\16"+
+		"\b\2ef\5\f\7\2fi\3\2\2\2gi\6\7\5\3hc\3\2\2\2hg\3\2\2\2i\r\3\2\2\2jk\6"+
+		"\b\6\3kl\5.\30\2lm\b\b\1\2mt\3\2\2\2no\6\b\7\3op\5\60\31\2pq\b\b\1\2q"+
+		"t\3\2\2\2rt\5\62\32\2sj\3\2\2\2sn\3\2\2\2sr\3\2\2\2t\17\3\2\2\2uv\7\t"+
+		"\2\2vw\5\22\n\2w\21\3\2\2\2xy\6\n\b\3yz\5\24\13\2z{\5\22\n\2{~\3\2\2\2"+
+		"|~\6\n\t\3}x\3\2\2\2}|\3\2\2\2~\23\3\2\2\2\177\u0080\6\13\n\3\u0080\u0081"+
+		"\5.\30\2\u0081\u0082\b\13\1\2\u0082\u0088\3\2\2\2\u0083\u0084\6\13\13"+
+		"\3\u0084\u0085\5\60\31\2\u0085\u0086\b\13\1\2\u0086\u0088\3\2\2\2\u0087"+
+		"\177\3\2\2\2\u0087\u0083\3\2\2\2\u0088\25\3\2\2\2\u0089\u008d\7\b\2\2"+
+		"\u008a\u008c\5\62\32\2\u008b\u008a\3\2\2\2\u008c\u008f\3\2\2\2\u008d\u008b"+
+		"\3\2\2\2\u008d\u008e\3\2\2\2\u008e\27\3\2\2\2\u008f\u008d\3\2\2\2\u0090"+
+		"\u0091\7\n\2\2\u0091\31\3\2\2\2\u0092\u0093\7\13\2\2\u0093\33\3\2\2\2"+
+		"\u0094\u0095\7\f\2\2\u0095\35\3\2\2\2\u0096\u0097\7\r\2\2\u0097\37\3\2"+
+		"\2\2\u0098\u0099\7\16\2\2\u0099!\3\2\2\2\u009a\u009f\7\17\2\2\u009b\u009c"+
+		"\7\3\2\2\u009c\u009d\5\66\34\2\u009d\u009e\7\4\2\2\u009e\u00a0\3\2\2\2"+
+		"\u009f\u009b\3\2\2\2\u009f\u00a0\3\2\2\2\u00a0#\3\2\2\2\u00a1\u00a2\7"+
+		"\20\2\2\u00a2%\3\2\2\2\u00a3\u00a4\7\21\2\2\u00a4\'\3\2\2\2\u00a5\u00a6"+
+		"\7\22\2\2\u00a6)\3\2\2\2\u00a7\u00a8\7\23\2\2\u00a8+\3\2\2\2\u00a9\u00aa"+
+		"\7\24\2\2\u00aa-\3\2\2\2\u00ab\u00ac\7\25\2\2\u00ac\u00b0\7\3\2\2\u00ad"+
+		"\u00af\13\2\2\2\u00ae\u00ad\3\2\2\2\u00af\u00b2\3\2\2\2\u00b0\u00b1\3"+
+		"\2\2\2\u00b0\u00ae\3\2\2\2\u00b1\u00b3\3\2\2\2\u00b2\u00b0\3\2\2\2\u00b3"+
+		"\u00b4\7\4\2\2\u00b4/\3\2\2\2\u00b5\u00b6\7\26\2\2\u00b6\u00b7\7\3\2\2"+
+		"\u00b7\u00b8\58\35\2\u00b8\u00b9\7\4\2\2\u00b9\61\3\2\2\2\u00ba\u00be"+
+		"\5(\25\2\u00bb\u00be\5*\26\2\u00bc\u00be\5,\27\2\u00bd\u00ba\3\2\2\2\u00bd"+
+		"\u00bb\3\2\2\2\u00bd\u00bc\3\2\2\2\u00be\u00bf\3\2\2\2\u00bf\u00c0\7\3"+
+		"\2\2\u00c0\u00c1\5\64\33\2\u00c1\u00c2\7\4\2\2\u00c2\63\3\2\2\2\u00c3"+
+		"\u00ce\5\66\34\2\u00c4\u00c5\5\66\34\2\u00c5\u00c6\7\5\2\2\u00c6\u00c8"+
+		"\3\2\2\2\u00c7\u00c4\3\2\2\2\u00c8\u00c9\3\2\2\2\u00c9\u00c7\3\2\2\2\u00c9"+
+		"\u00ca\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00cc\5\66\34\2\u00cc\u00ce\3"+
+		"\2\2\2\u00cd\u00c3\3\2\2\2\u00cd\u00c7\3\2\2\2\u00ce\65\3\2\2\2\u00cf"+
+		"\u00d0\7\27\2\2\u00d0\67\3\2\2\2\u00d1\u00d2\7\31\2\2\u00d29\3\2\2\2\17"+
+		"GR]hs}\u0087\u008d\u009f\u00b0\u00bd\u00c9\u00cd";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
