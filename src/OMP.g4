@@ -91,7 +91,7 @@ ompPublic       : PUBLIC       ;
 ompPrivate      : PRIVATE      ;
 ompFirstPrivate : FIRSTPRIVATE ;
 
-ompSchedule       : SCHEDULE '(' ( . )*? ')'                          ;
+ompSchedule       : SCHEDULE '(' ( VAR | '.' )*? ')'                          ;
 threadNum         : THREAD_NUM '(' ompNumber ')'                                   ;
 ompAccessModifier : ( ompPublic | ompPrivate | ompFirstPrivate ) '(' ompVars ')'   ;
 
