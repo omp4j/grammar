@@ -64,15 +64,15 @@ ompSections
     : SECTIONS sectionsModifiers ;
 
     sectionsModifiers
-        : {$ompParallelFor::names.size() < 2}? sectionsModifier sectionsModifiers
-        | {$ompParallelFor::names.size() <= 2}?
+        : {$ompSections::names.size() < 2}? sectionsModifier sectionsModifiers
+        | {$ompSections::names.size() <= 2}?
         ;
 
     sectionsModifier
         // Ensure that no duplicates have been provided
         // schedule and threadNum
-        : {!$ompParallelFor::names.contains("schedule")}?  ompSchedule {$ompParallelFor::names.add("schedule");}
-        | {!$ompParallelFor::names.contains("threadNum")}? threadNum   {$ompParallelFor::names.add("threadNum");}
+        : {!$ompSections::names.contains("schedule")}?  ompSchedule {$ompSections::names.add("schedule");}
+        | {!$ompSections::names.contains("threadNum")}? threadNum   {$ompSections::names.add("threadNum");}
         ;
 
 

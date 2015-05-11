@@ -9,6 +9,56 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface OMPListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link OMPParser#sectionsModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#sectionsModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompSchedule}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompSchedule}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompVars}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpVars(@NotNull OMPParser.OmpVarsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompVars}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpVars(@NotNull OMPParser.OmpVarsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#sectionsModifiers}.
+	 * @param ctx the parse tree
+	 */
+	void enterSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#sectionsModifiers}.
+	 * @param ctx the parse tree
+	 */
+	void exitSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompPrivate}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompPrivate}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompParallelForModifiers}.
 	 * @param ctx the parse tree
 	 */
@@ -39,16 +89,6 @@ public interface OMPListener extends ParseTreeListener {
 	 */
 	void exitOmpFor(@NotNull OMPParser.OmpForContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompUnit}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpUnit(@NotNull OMPParser.OmpUnitContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompUnit}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpUnit(@NotNull OMPParser.OmpUnitContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompParallelModifier}.
 	 * @param ctx the parse tree
 	 */
@@ -58,6 +98,46 @@ public interface OMPListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOmpParallelModifier(@NotNull OMPParser.OmpParallelModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#threadNum}.
+	 * @param ctx the parse tree
+	 */
+	void enterThreadNum(@NotNull OMPParser.ThreadNumContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#threadNum}.
+	 * @param ctx the parse tree
+	 */
+	void exitThreadNum(@NotNull OMPParser.ThreadNumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompVar}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpVar(@NotNull OMPParser.OmpVarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompVar}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpVar(@NotNull OMPParser.OmpVarContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompParallelFor}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompParallelFor}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompNumThreads}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpNumThreads(@NotNull OMPParser.OmpNumThreadsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompNumThreads}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpNumThreads(@NotNull OMPParser.OmpNumThreadsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompSection}.
 	 * @param ctx the parse tree
@@ -69,15 +149,25 @@ public interface OMPListener extends ParseTreeListener {
 	 */
 	void exitOmpSection(@NotNull OMPParser.OmpSectionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompSections}.
+	 * Enter a parse tree produced by {@link OMPParser#ompThreadNum}.
 	 * @param ctx the parse tree
 	 */
-	void enterOmpSections(@NotNull OMPParser.OmpSectionsContext ctx);
+	void enterOmpThreadNum(@NotNull OMPParser.OmpThreadNumContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompSections}.
+	 * Exit a parse tree produced by {@link OMPParser#ompThreadNum}.
 	 * @param ctx the parse tree
 	 */
-	void exitOmpSections(@NotNull OMPParser.OmpSectionsContext ctx);
+	void exitOmpThreadNum(@NotNull OMPParser.OmpThreadNumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompNumber}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpNumber(@NotNull OMPParser.OmpNumberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompNumber}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpNumber(@NotNull OMPParser.OmpNumberContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompSingle}.
 	 * @param ctx the parse tree
@@ -89,15 +179,15 @@ public interface OMPListener extends ParseTreeListener {
 	 */
 	void exitOmpSingle(@NotNull OMPParser.OmpSingleContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompBarrier}.
+	 * Enter a parse tree produced by {@link OMPParser#ompParallelForModifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx);
+	void enterOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompBarrier}.
+	 * Exit a parse tree produced by {@link OMPParser#ompParallelForModifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx);
+	void exitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompAtomic}.
 	 * @param ctx the parse tree
@@ -119,105 +209,15 @@ public interface OMPListener extends ParseTreeListener {
 	 */
 	void exitOmpFirstPrivate(@NotNull OMPParser.OmpFirstPrivateContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OMPParser#sectionsModifier}.
+	 * Enter a parse tree produced by {@link OMPParser#ompBarrier}.
 	 * @param ctx the parse tree
 	 */
-	void enterSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx);
+	void enterOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OMPParser#sectionsModifier}.
+	 * Exit a parse tree produced by {@link OMPParser#ompBarrier}.
 	 * @param ctx the parse tree
 	 */
-	void exitSectionsModifier(@NotNull OMPParser.SectionsModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompAccessModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompAccessModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompParallelFor}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompParallelFor}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpParallelFor(@NotNull OMPParser.OmpParallelForContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompParallelForModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompParallelForModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpParallelForModifier(@NotNull OMPParser.OmpParallelForModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompPrivate}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompPrivate}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpPrivate(@NotNull OMPParser.OmpPrivateContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompSchedule}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompSchedule}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpSchedule(@NotNull OMPParser.OmpScheduleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompVar}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpVar(@NotNull OMPParser.OmpVarContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompVar}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpVar(@NotNull OMPParser.OmpVarContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompMaster}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpMaster(@NotNull OMPParser.OmpMasterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompMaster}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpMaster(@NotNull OMPParser.OmpMasterContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#sectionsModifiers}.
-	 * @param ctx the parse tree
-	 */
-	void enterSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#sectionsModifiers}.
-	 * @param ctx the parse tree
-	 */
-	void exitSectionsModifiers(@NotNull OMPParser.SectionsModifiersContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompParallel}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpParallel(@NotNull OMPParser.OmpParallelContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompParallel}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx);
+	void exitOmpBarrier(@NotNull OMPParser.OmpBarrierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompPublic}.
 	 * @param ctx the parse tree
@@ -229,15 +229,55 @@ public interface OMPListener extends ParseTreeListener {
 	 */
 	void exitOmpPublic(@NotNull OMPParser.OmpPublicContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompThreadNum}.
+	 * Enter a parse tree produced by {@link OMPParser#ompAccessModifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterOmpThreadNum(@NotNull OMPParser.OmpThreadNumContext ctx);
+	void enterOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompThreadNum}.
+	 * Exit a parse tree produced by {@link OMPParser#ompAccessModifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitOmpThreadNum(@NotNull OMPParser.OmpThreadNumContext ctx);
+	void exitOmpAccessModifier(@NotNull OMPParser.OmpAccessModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompUnit}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpUnit(@NotNull OMPParser.OmpUnitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompUnit}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpUnit(@NotNull OMPParser.OmpUnitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompSections}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpSections(@NotNull OMPParser.OmpSectionsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompSections}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpSections(@NotNull OMPParser.OmpSectionsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompMaster}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpMaster(@NotNull OMPParser.OmpMasterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompMaster}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpMaster(@NotNull OMPParser.OmpMasterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OMPParser#ompParallel}.
+	 * @param ctx the parse tree
+	 */
+	void enterOmpParallel(@NotNull OMPParser.OmpParallelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OMPParser#ompParallel}.
+	 * @param ctx the parse tree
+	 */
+	void exitOmpParallel(@NotNull OMPParser.OmpParallelContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OMPParser#ompParallelModifiers}.
 	 * @param ctx the parse tree
@@ -248,44 +288,4 @@ public interface OMPListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOmpParallelModifiers(@NotNull OMPParser.OmpParallelModifiersContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompNumThreads}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpNumThreads(@NotNull OMPParser.OmpNumThreadsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompNumThreads}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpNumThreads(@NotNull OMPParser.OmpNumThreadsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompVars}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpVars(@NotNull OMPParser.OmpVarsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompVars}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpVars(@NotNull OMPParser.OmpVarsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#ompNumber}.
-	 * @param ctx the parse tree
-	 */
-	void enterOmpNumber(@NotNull OMPParser.OmpNumberContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#ompNumber}.
-	 * @param ctx the parse tree
-	 */
-	void exitOmpNumber(@NotNull OMPParser.OmpNumberContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OMPParser#threadNum}.
-	 * @param ctx the parse tree
-	 */
-	void enterThreadNum(@NotNull OMPParser.ThreadNumContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OMPParser#threadNum}.
-	 * @param ctx the parse tree
-	 */
-	void exitThreadNum(@NotNull OMPParser.ThreadNumContext ctx);
 }

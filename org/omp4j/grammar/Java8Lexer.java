@@ -119,14 +119,14 @@ public class Java8Lexer extends Lexer {
 		case 154: LINE_COMMENT_action((RuleContext)_localctx, actionIndex); break;
 		}
 	}
-	private void LINE_COMMENT_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 2: _channel = COMMENTS; break;
-		}
-	}
 	private void WS_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
 		case 0: _channel = OTHER; break;
+		}
+	}
+	private void LINE_COMMENT_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 2: _channel = COMMENTS; break;
 		}
 	}
 	private void COMMENT_action(RuleContext _localctx, int actionIndex) {
