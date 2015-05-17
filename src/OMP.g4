@@ -11,9 +11,7 @@ ompUnit : OMP (
                 ompMaster      |
                 ompBarrier     |
                 ompAtomic      |
-                ompCritical    |
-                ompThreadNum   |
-                ompNumThreads
+                ompCritical
                ) EOF ;
 
 ompParallel
@@ -84,9 +82,6 @@ ompBarrier      : BARRIER                      ;
 ompAtomic       : ATOMIC                       ;
 ompCritical     : CRITICAL ( '(' ompVar ')' )? ;
 
-ompThreadNum    : OMPTHREADNUM  ;
-ompNumThreads   : OMPNUMTHREADS ;
-
 ompPublic       : PUBLIC       ;
 ompPrivate      : PRIVATE      ;
 ompFirstPrivate : FIRSTPRIVATE ;
@@ -111,9 +106,6 @@ MASTER   : 'master'   ;
 BARRIER  : 'barrier'  ;
 ATOMIC   : 'atomic'   ;
 CRITICAL : 'critical' ;
-
-OMPTHREADNUM  : 'OMP_THREAD_NUM'  ;
-OMPNUMTHREADS : 'OMP_NUM_THREADS' ;
 
 PUBLIC       : 'public'       ;
 PRIVATE      : 'private'      ;

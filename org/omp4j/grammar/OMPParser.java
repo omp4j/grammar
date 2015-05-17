@@ -18,15 +18,14 @@ public class OMPParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__3=1, T__2=2, T__1=3, T__0=4, OMP=5, PARALLEL=6, FOR=7, SECTIONS=8, 
-		SECTION=9, SINGLE=10, MASTER=11, BARRIER=12, ATOMIC=13, CRITICAL=14, OMPTHREADNUM=15, 
-		OMPNUMTHREADS=16, PUBLIC=17, PRIVATE=18, FIRSTPRIVATE=19, SCHEDULE=20, 
-		THREAD_NUM=21, VAR=22, FULLNAME=23, NUMBER=24, WS=25;
+		SECTION=9, SINGLE=10, MASTER=11, BARRIER=12, ATOMIC=13, CRITICAL=14, PUBLIC=15, 
+		PRIVATE=16, FIRSTPRIVATE=17, SCHEDULE=18, THREAD_NUM=19, VAR=20, FULLNAME=21, 
+		NUMBER=22, WS=23;
 	public static final String[] tokenNames = {
-		"<INVALID>", "')'", "'.'", "','", "'('", "'omp'", "'parallel'", "'for'", 
+		"<INVALID>", "'('", "')'", "','", "'.'", "'omp'", "'parallel'", "'for'", 
 		"'sections'", "'section'", "'single'", "'master'", "'barrier'", "'atomic'", 
-		"'critical'", "'OMP_THREAD_NUM'", "'OMP_NUM_THREADS'", "'public'", "'private'", 
-		"'firstprivate'", "'schedule'", "'threadNum'", "VAR", "FULLNAME", "NUMBER", 
-		"WS"
+		"'critical'", "'public'", "'private'", "'firstprivate'", "'schedule'", 
+		"'threadNum'", "VAR", "FULLNAME", "NUMBER", "WS"
 	};
 	public static final int
 		RULE_ompUnit = 0, RULE_ompParallel = 1, RULE_ompParallelModifiers = 2, 
@@ -34,17 +33,16 @@ public class OMPParser extends Parser {
 		RULE_ompParallelForModifier = 6, RULE_ompSections = 7, RULE_sectionsModifiers = 8, 
 		RULE_sectionsModifier = 9, RULE_ompFor = 10, RULE_ompSection = 11, RULE_ompSingle = 12, 
 		RULE_ompMaster = 13, RULE_ompBarrier = 14, RULE_ompAtomic = 15, RULE_ompCritical = 16, 
-		RULE_ompThreadNum = 17, RULE_ompNumThreads = 18, RULE_ompPublic = 19, 
-		RULE_ompPrivate = 20, RULE_ompFirstPrivate = 21, RULE_ompSchedule = 22, 
-		RULE_threadNum = 23, RULE_ompAccessModifier = 24, RULE_ompVars = 25, RULE_ompVar = 26, 
-		RULE_ompNumber = 27;
+		RULE_ompPublic = 17, RULE_ompPrivate = 18, RULE_ompFirstPrivate = 19, 
+		RULE_ompSchedule = 20, RULE_threadNum = 21, RULE_ompAccessModifier = 22, 
+		RULE_ompVars = 23, RULE_ompVar = 24, RULE_ompNumber = 25;
 	public static final String[] ruleNames = {
 		"ompUnit", "ompParallel", "ompParallelModifiers", "ompParallelModifier", 
 		"ompParallelFor", "ompParallelForModifiers", "ompParallelForModifier", 
 		"ompSections", "sectionsModifiers", "sectionsModifier", "ompFor", "ompSection", 
-		"ompSingle", "ompMaster", "ompBarrier", "ompAtomic", "ompCritical", "ompThreadNum", 
-		"ompNumThreads", "ompPublic", "ompPrivate", "ompFirstPrivate", "ompSchedule", 
-		"threadNum", "ompAccessModifier", "ompVars", "ompVar", "ompNumber"
+		"ompSingle", "ompMaster", "ompBarrier", "ompAtomic", "ompCritical", "ompPublic", 
+		"ompPrivate", "ompFirstPrivate", "ompSchedule", "threadNum", "ompAccessModifier", 
+		"ompVars", "ompVar", "ompNumber"
 	};
 
 	@Override
@@ -70,40 +68,34 @@ public class OMPParser extends Parser {
 		public OmpParallelContext ompParallel() {
 			return getRuleContext(OmpParallelContext.class,0);
 		}
-		public OmpNumThreadsContext ompNumThreads() {
-			return getRuleContext(OmpNumThreadsContext.class,0);
+		public TerminalNode OMP() { return getToken(OMPParser.OMP, 0); }
+		public TerminalNode EOF() { return getToken(OMPParser.EOF, 0); }
+		public OmpForContext ompFor() {
+			return getRuleContext(OmpForContext.class,0);
 		}
 		public OmpSectionContext ompSection() {
 			return getRuleContext(OmpSectionContext.class,0);
 		}
-		public TerminalNode OMP() { return getToken(OMPParser.OMP, 0); }
+		public OmpMasterContext ompMaster() {
+			return getRuleContext(OmpMasterContext.class,0);
+		}
 		public OmpCriticalContext ompCritical() {
 			return getRuleContext(OmpCriticalContext.class,0);
 		}
 		public OmpParallelForContext ompParallelFor() {
 			return getRuleContext(OmpParallelForContext.class,0);
 		}
-		public TerminalNode EOF() { return getToken(OMPParser.EOF, 0); }
-		public OmpSectionsContext ompSections() {
-			return getRuleContext(OmpSectionsContext.class,0);
-		}
-		public OmpThreadNumContext ompThreadNum() {
-			return getRuleContext(OmpThreadNumContext.class,0);
-		}
-		public OmpForContext ompFor() {
-			return getRuleContext(OmpForContext.class,0);
-		}
 		public OmpSingleContext ompSingle() {
 			return getRuleContext(OmpSingleContext.class,0);
-		}
-		public OmpMasterContext ompMaster() {
-			return getRuleContext(OmpMasterContext.class,0);
 		}
 		public OmpBarrierContext ompBarrier() {
 			return getRuleContext(OmpBarrierContext.class,0);
 		}
 		public OmpAtomicContext ompAtomic() {
 			return getRuleContext(OmpAtomicContext.class,0);
+		}
+		public OmpSectionsContext ompSections() {
+			return getRuleContext(OmpSectionsContext.class,0);
 		}
 		public OmpUnitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -130,71 +122,61 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56); match(OMP);
-			setState(69);
+			setState(52); match(OMP);
+			setState(63);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				{
-				setState(57); ompParallel();
+				setState(53); ompParallel();
 				}
 				break;
 			case 2:
 				{
-				setState(58); ompParallelFor();
+				setState(54); ompParallelFor();
 				}
 				break;
 			case 3:
 				{
-				setState(59); ompFor();
+				setState(55); ompFor();
 				}
 				break;
 			case 4:
 				{
-				setState(60); ompSections();
+				setState(56); ompSections();
 				}
 				break;
 			case 5:
 				{
-				setState(61); ompSection();
+				setState(57); ompSection();
 				}
 				break;
 			case 6:
 				{
-				setState(62); ompSingle();
+				setState(58); ompSingle();
 				}
 				break;
 			case 7:
 				{
-				setState(63); ompMaster();
+				setState(59); ompMaster();
 				}
 				break;
 			case 8:
 				{
-				setState(64); ompBarrier();
+				setState(60); ompBarrier();
 				}
 				break;
 			case 9:
 				{
-				setState(65); ompAtomic();
+				setState(61); ompAtomic();
 				}
 				break;
 			case 10:
 				{
-				setState(66); ompCritical();
-				}
-				break;
-			case 11:
-				{
-				setState(67); ompThreadNum();
-				}
-				break;
-			case 12:
-				{
-				setState(68); ompNumThreads();
+				setState(62); ompCritical();
 				}
 				break;
 			}
-			setState(71); match(EOF);
+			setState(65); match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -242,8 +224,8 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73); match(PARALLEL);
-			setState(74); ompParallelModifiers();
+			setState(67); match(PARALLEL);
+			setState(68); ompParallelModifiers();
 			}
 		}
 		catch (RecognitionException re) {
@@ -258,11 +240,11 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpParallelModifiersContext extends ParserRuleContext {
-		public OmpParallelModifierContext ompParallelModifier() {
-			return getRuleContext(OmpParallelModifierContext.class,0);
-		}
 		public OmpParallelModifiersContext ompParallelModifiers() {
 			return getRuleContext(OmpParallelModifiersContext.class,0);
+		}
+		public OmpParallelModifierContext ompParallelModifier() {
+			return getRuleContext(OmpParallelModifierContext.class,0);
 		}
 		public OmpParallelModifiersContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -287,13 +269,13 @@ public class OMPParser extends Parser {
 		OmpParallelModifiersContext _localctx = new OmpParallelModifiersContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_ompParallelModifiers);
 		try {
-			setState(80);
+			setState(74);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(76); ompParallelModifier();
-				setState(77); ompParallelModifiers();
+				setState(70); ompParallelModifier();
+				setState(71); ompParallelModifiers();
 				}
 				break;
 			case 2:
@@ -318,11 +300,11 @@ public class OMPParser extends Parser {
 		public ThreadNumContext threadNum() {
 			return getRuleContext(ThreadNumContext.class,0);
 		}
-		public OmpAccessModifierContext ompAccessModifier() {
-			return getRuleContext(OmpAccessModifierContext.class,0);
-		}
 		public OmpScheduleContext ompSchedule() {
 			return getRuleContext(OmpScheduleContext.class,0);
+		}
+		public OmpAccessModifierContext ompAccessModifier() {
+			return getRuleContext(OmpAccessModifierContext.class,0);
 		}
 		public OmpParallelModifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -347,30 +329,30 @@ public class OMPParser extends Parser {
 		OmpParallelModifierContext _localctx = new OmpParallelModifierContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_ompParallelModifier);
 		try {
-			setState(91);
+			setState(85);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(82);
+				setState(76);
 				if (!(!((OmpParallelContext)getInvokingContext(1)).names.contains("schedule"))) throw new FailedPredicateException(this, "!$ompParallel::names.contains(\"schedule\")");
-				setState(83); ompSchedule();
+				setState(77); ompSchedule();
 				((OmpParallelContext)getInvokingContext(1)).names.add("schedule");
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(86);
+				setState(80);
 				if (!(!((OmpParallelContext)getInvokingContext(1)).names.contains("threadNum"))) throw new FailedPredicateException(this, "!$ompParallel::names.contains(\"threadNum\")");
-				setState(87); threadNum();
+				setState(81); threadNum();
 				((OmpParallelContext)getInvokingContext(1)).names.add("threadNum");
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(90); ompAccessModifier();
+				setState(84); ompAccessModifier();
 				}
 				break;
 			}
@@ -388,8 +370,8 @@ public class OMPParser extends Parser {
 
 	public static class OmpParallelForContext extends ParserRuleContext {
 		public static java.util.HashSet<String> names;
-		public TerminalNode FOR() { return getToken(OMPParser.FOR, 0); }
 		public TerminalNode PARALLEL() { return getToken(OMPParser.PARALLEL, 0); }
+		public TerminalNode FOR() { return getToken(OMPParser.FOR, 0); }
 		public OmpParallelForModifiersContext ompParallelForModifiers() {
 			return getRuleContext(OmpParallelForModifiersContext.class,0);
 		}
@@ -421,9 +403,9 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93); match(PARALLEL);
-			setState(94); match(FOR);
-			setState(95); ompParallelForModifiers();
+			setState(87); match(PARALLEL);
+			setState(88); match(FOR);
+			setState(89); ompParallelForModifiers();
 			}
 		}
 		catch (RecognitionException re) {
@@ -467,21 +449,21 @@ public class OMPParser extends Parser {
 		OmpParallelForModifiersContext _localctx = new OmpParallelForModifiersContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_ompParallelForModifiers);
 		try {
-			setState(102);
+			setState(96);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(97);
+				setState(91);
 				if (!(((OmpParallelForContext)getInvokingContext(4)).names.size() < 3)) throw new FailedPredicateException(this, "$ompParallelFor::names.size() < 3");
-				setState(98); ompParallelForModifier();
-				setState(99); ompParallelForModifiers();
+				setState(92); ompParallelForModifier();
+				setState(93); ompParallelForModifiers();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(101);
+				setState(95);
 				if (!(((OmpParallelForContext)getInvokingContext(4)).names.size() <= 3)) throw new FailedPredicateException(this, "$ompParallelFor::names.size() <= 3");
 				}
 				break;
@@ -502,11 +484,11 @@ public class OMPParser extends Parser {
 		public ThreadNumContext threadNum() {
 			return getRuleContext(ThreadNumContext.class,0);
 		}
-		public OmpAccessModifierContext ompAccessModifier() {
-			return getRuleContext(OmpAccessModifierContext.class,0);
-		}
 		public OmpScheduleContext ompSchedule() {
 			return getRuleContext(OmpScheduleContext.class,0);
+		}
+		public OmpAccessModifierContext ompAccessModifier() {
+			return getRuleContext(OmpAccessModifierContext.class,0);
 		}
 		public OmpParallelForModifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -531,30 +513,30 @@ public class OMPParser extends Parser {
 		OmpParallelForModifierContext _localctx = new OmpParallelForModifierContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_ompParallelForModifier);
 		try {
-			setState(113);
+			setState(107);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(104);
+				setState(98);
 				if (!(!((OmpParallelForContext)getInvokingContext(4)).names.contains("schedule"))) throw new FailedPredicateException(this, "!$ompParallelFor::names.contains(\"schedule\")");
-				setState(105); ompSchedule();
+				setState(99); ompSchedule();
 				((OmpParallelForContext)getInvokingContext(4)).names.add("schedule");
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(108);
+				setState(102);
 				if (!(!((OmpParallelForContext)getInvokingContext(4)).names.contains("threadNum"))) throw new FailedPredicateException(this, "!$ompParallelFor::names.contains(\"threadNum\")");
-				setState(109); threadNum();
+				setState(103); threadNum();
 				((OmpParallelForContext)getInvokingContext(4)).names.add("threadNum");
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(112); ompAccessModifier();
+				setState(106); ompAccessModifier();
 				}
 				break;
 			}
@@ -572,10 +554,10 @@ public class OMPParser extends Parser {
 
 	public static class OmpSectionsContext extends ParserRuleContext {
 		public static java.util.HashSet<String> names;
+		public TerminalNode SECTIONS() { return getToken(OMPParser.SECTIONS, 0); }
 		public SectionsModifiersContext sectionsModifiers() {
 			return getRuleContext(SectionsModifiersContext.class,0);
 		}
-		public TerminalNode SECTIONS() { return getToken(OMPParser.SECTIONS, 0); }
 		public OmpSectionsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -604,8 +586,8 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(115); match(SECTIONS);
-			setState(116); sectionsModifiers();
+			setState(109); match(SECTIONS);
+			setState(110); sectionsModifiers();
 			}
 		}
 		catch (RecognitionException re) {
@@ -649,21 +631,21 @@ public class OMPParser extends Parser {
 		SectionsModifiersContext _localctx = new SectionsModifiersContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_sectionsModifiers);
 		try {
-			setState(123);
+			setState(117);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(118);
+				setState(112);
 				if (!(((OmpSectionsContext)getInvokingContext(7)).names.size() < 2)) throw new FailedPredicateException(this, "$ompSections::names.size() < 2");
-				setState(119); sectionsModifier();
-				setState(120); sectionsModifiers();
+				setState(113); sectionsModifier();
+				setState(114); sectionsModifiers();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(122);
+				setState(116);
 				if (!(((OmpSectionsContext)getInvokingContext(7)).names.size() <= 2)) throw new FailedPredicateException(this, "$ompSections::names.size() <= 2");
 				}
 				break;
@@ -710,23 +692,23 @@ public class OMPParser extends Parser {
 		SectionsModifierContext _localctx = new SectionsModifierContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_sectionsModifier);
 		try {
-			setState(133);
+			setState(127);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(125);
+				setState(119);
 				if (!(!((OmpSectionsContext)getInvokingContext(7)).names.contains("schedule"))) throw new FailedPredicateException(this, "!$ompSections::names.contains(\"schedule\")");
-				setState(126); ompSchedule();
+				setState(120); ompSchedule();
 				((OmpSectionsContext)getInvokingContext(7)).names.add("schedule");
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(129);
+				setState(123);
 				if (!(!((OmpSectionsContext)getInvokingContext(7)).names.contains("threadNum"))) throw new FailedPredicateException(this, "!$ompSections::names.contains(\"threadNum\")");
-				setState(130); threadNum();
+				setState(124); threadNum();
 				((OmpSectionsContext)getInvokingContext(7)).names.add("threadNum");
 				}
 				break;
@@ -744,13 +726,13 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpForContext extends ParserRuleContext {
+		public TerminalNode FOR() { return getToken(OMPParser.FOR, 0); }
 		public OmpAccessModifierContext ompAccessModifier(int i) {
 			return getRuleContext(OmpAccessModifierContext.class,i);
 		}
 		public List<OmpAccessModifierContext> ompAccessModifier() {
 			return getRuleContexts(OmpAccessModifierContext.class);
 		}
-		public TerminalNode FOR() { return getToken(OMPParser.FOR, 0); }
 		public OmpForContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -777,17 +759,17 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(135); match(FOR);
-			setState(139);
+			setState(129); match(FOR);
+			setState(133);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PUBLIC) | (1L << PRIVATE) | (1L << FIRSTPRIVATE))) != 0)) {
 				{
 				{
-				setState(136); ompAccessModifier();
+				setState(130); ompAccessModifier();
 				}
 				}
-				setState(141);
+				setState(135);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -831,7 +813,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(142); match(SECTION);
+			setState(136); match(SECTION);
 			}
 		}
 		catch (RecognitionException re) {
@@ -872,7 +854,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(144); match(SINGLE);
+			setState(138); match(SINGLE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -913,7 +895,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(146); match(MASTER);
+			setState(140); match(MASTER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -954,7 +936,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(148); match(BARRIER);
+			setState(142); match(BARRIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -995,7 +977,7 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(150); match(ATOMIC);
+			setState(144); match(ATOMIC);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1010,10 +992,10 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpCriticalContext extends ParserRuleContext {
+		public TerminalNode CRITICAL() { return getToken(OMPParser.CRITICAL, 0); }
 		public OmpVarContext ompVar() {
 			return getRuleContext(OmpVarContext.class,0);
 		}
-		public TerminalNode CRITICAL() { return getToken(OMPParser.CRITICAL, 0); }
 		public OmpCriticalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1040,99 +1022,17 @@ public class OMPParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(152); match(CRITICAL);
-			setState(157);
+			setState(146); match(CRITICAL);
+			setState(151);
 			_la = _input.LA(1);
-			if (_la==T__0) {
+			if (_la==T__3) {
 				{
-				setState(153); match(T__0);
-				setState(154); ompVar();
-				setState(155); match(T__3);
+				setState(147); match(T__3);
+				setState(148); ompVar();
+				setState(149); match(T__2);
 				}
 			}
 
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class OmpThreadNumContext extends ParserRuleContext {
-		public TerminalNode OMPTHREADNUM() { return getToken(OMPParser.OMPTHREADNUM, 0); }
-		public OmpThreadNumContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ompThreadNum; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof OMPListener ) ((OMPListener)listener).enterOmpThreadNum(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof OMPListener ) ((OMPListener)listener).exitOmpThreadNum(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof OMPVisitor ) return ((OMPVisitor<? extends T>)visitor).visitOmpThreadNum(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final OmpThreadNumContext ompThreadNum() throws RecognitionException {
-		OmpThreadNumContext _localctx = new OmpThreadNumContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_ompThreadNum);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(159); match(OMPTHREADNUM);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class OmpNumThreadsContext extends ParserRuleContext {
-		public TerminalNode OMPNUMTHREADS() { return getToken(OMPParser.OMPNUMTHREADS, 0); }
-		public OmpNumThreadsContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ompNumThreads; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof OMPListener ) ((OMPListener)listener).enterOmpNumThreads(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof OMPListener ) ((OMPListener)listener).exitOmpNumThreads(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof OMPVisitor ) return ((OMPVisitor<? extends T>)visitor).visitOmpNumThreads(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final OmpNumThreadsContext ompNumThreads() throws RecognitionException {
-		OmpNumThreadsContext _localctx = new OmpNumThreadsContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_ompNumThreads);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(161); match(OMPNUMTHREADS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1169,11 +1069,11 @@ public class OMPParser extends Parser {
 
 	public final OmpPublicContext ompPublic() throws RecognitionException {
 		OmpPublicContext _localctx = new OmpPublicContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_ompPublic);
+		enterRule(_localctx, 34, RULE_ompPublic);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(163); match(PUBLIC);
+			setState(153); match(PUBLIC);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1210,11 +1110,11 @@ public class OMPParser extends Parser {
 
 	public final OmpPrivateContext ompPrivate() throws RecognitionException {
 		OmpPrivateContext _localctx = new OmpPrivateContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_ompPrivate);
+		enterRule(_localctx, 36, RULE_ompPrivate);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(165); match(PRIVATE);
+			setState(155); match(PRIVATE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1251,11 +1151,11 @@ public class OMPParser extends Parser {
 
 	public final OmpFirstPrivateContext ompFirstPrivate() throws RecognitionException {
 		OmpFirstPrivateContext _localctx = new OmpFirstPrivateContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_ompFirstPrivate);
+		enterRule(_localctx, 38, RULE_ompFirstPrivate);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(167); match(FIRSTPRIVATE);
+			setState(157); match(FIRSTPRIVATE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1270,11 +1170,11 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpScheduleContext extends ParserRuleContext {
+		public List<TerminalNode> VAR() { return getTokens(OMPParser.VAR); }
 		public TerminalNode VAR(int i) {
 			return getToken(OMPParser.VAR, i);
 		}
 		public TerminalNode SCHEDULE() { return getToken(OMPParser.SCHEDULE, 0); }
-		public List<TerminalNode> VAR() { return getTokens(OMPParser.VAR); }
 		public OmpScheduleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1296,35 +1196,35 @@ public class OMPParser extends Parser {
 
 	public final OmpScheduleContext ompSchedule() throws RecognitionException {
 		OmpScheduleContext _localctx = new OmpScheduleContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_ompSchedule);
+		enterRule(_localctx, 40, RULE_ompSchedule);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(169); match(SCHEDULE);
-			setState(170); match(T__0);
-			setState(174);
+			setState(159); match(SCHEDULE);
+			setState(160); match(T__3);
+			setState(164);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1+1 ) {
 					{
 					{
-					setState(171);
+					setState(161);
 					_la = _input.LA(1);
-					if ( !(_la==T__2 || _la==VAR) ) {
+					if ( !(_la==T__0 || _la==VAR) ) {
 					_errHandler.recoverInline(this);
 					}
 					consume();
 					}
 					} 
 				}
-				setState(176);
+				setState(166);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			}
-			setState(177); match(T__3);
+			setState(167); match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1339,10 +1239,10 @@ public class OMPParser extends Parser {
 	}
 
 	public static class ThreadNumContext extends ParserRuleContext {
+		public TerminalNode THREAD_NUM() { return getToken(OMPParser.THREAD_NUM, 0); }
 		public OmpNumberContext ompNumber() {
 			return getRuleContext(OmpNumberContext.class,0);
 		}
-		public TerminalNode THREAD_NUM() { return getToken(OMPParser.THREAD_NUM, 0); }
 		public ThreadNumContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1364,14 +1264,14 @@ public class OMPParser extends Parser {
 
 	public final ThreadNumContext threadNum() throws RecognitionException {
 		ThreadNumContext _localctx = new ThreadNumContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_threadNum);
+		enterRule(_localctx, 42, RULE_threadNum);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(179); match(THREAD_NUM);
-			setState(180); match(T__0);
-			setState(181); ompNumber();
-			setState(182); match(T__3);
+			setState(169); match(THREAD_NUM);
+			setState(170); match(T__3);
+			setState(171); ompNumber();
+			setState(172); match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1386,17 +1286,17 @@ public class OMPParser extends Parser {
 	}
 
 	public static class OmpAccessModifierContext extends ParserRuleContext {
-		public OmpVarsContext ompVars() {
-			return getRuleContext(OmpVarsContext.class,0);
-		}
-		public OmpPrivateContext ompPrivate() {
-			return getRuleContext(OmpPrivateContext.class,0);
+		public OmpFirstPrivateContext ompFirstPrivate() {
+			return getRuleContext(OmpFirstPrivateContext.class,0);
 		}
 		public OmpPublicContext ompPublic() {
 			return getRuleContext(OmpPublicContext.class,0);
 		}
-		public OmpFirstPrivateContext ompFirstPrivate() {
-			return getRuleContext(OmpFirstPrivateContext.class,0);
+		public OmpPrivateContext ompPrivate() {
+			return getRuleContext(OmpPrivateContext.class,0);
+		}
+		public OmpVarsContext ompVars() {
+			return getRuleContext(OmpVarsContext.class,0);
 		}
 		public OmpAccessModifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1419,33 +1319,33 @@ public class OMPParser extends Parser {
 
 	public final OmpAccessModifierContext ompAccessModifier() throws RecognitionException {
 		OmpAccessModifierContext _localctx = new OmpAccessModifierContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_ompAccessModifier);
+		enterRule(_localctx, 44, RULE_ompAccessModifier);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(187);
+			setState(177);
 			switch (_input.LA(1)) {
 			case PUBLIC:
 				{
-				setState(184); ompPublic();
+				setState(174); ompPublic();
 				}
 				break;
 			case PRIVATE:
 				{
-				setState(185); ompPrivate();
+				setState(175); ompPrivate();
 				}
 				break;
 			case FIRSTPRIVATE:
 				{
-				setState(186); ompFirstPrivate();
+				setState(176); ompFirstPrivate();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(189); match(T__0);
-			setState(190); ompVars();
-			setState(191); match(T__3);
+			setState(179); match(T__3);
+			setState(180); ompVars();
+			setState(181); match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1487,21 +1387,21 @@ public class OMPParser extends Parser {
 
 	public final OmpVarsContext ompVars() throws RecognitionException {
 		OmpVarsContext _localctx = new OmpVarsContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_ompVars);
+		enterRule(_localctx, 46, RULE_ompVars);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(203);
+			setState(193);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(193); ompVar();
+				setState(183); ompVar();
 				}
 				break;
 			case 2:
 				{
-				setState(197); 
+				setState(187); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -1509,19 +1409,19 @@ public class OMPParser extends Parser {
 					case 1:
 						{
 						{
-						setState(194); ompVar();
-						setState(195); match(T__1);
+						setState(184); ompVar();
+						setState(185); match(T__1);
 						}
 						}
 						break;
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(199); 
+					setState(189); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-				setState(201); ompVar();
+				setState(191); ompVar();
 				}
 				break;
 			}
@@ -1561,11 +1461,11 @@ public class OMPParser extends Parser {
 
 	public final OmpVarContext ompVar() throws RecognitionException {
 		OmpVarContext _localctx = new OmpVarContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_ompVar);
+		enterRule(_localctx, 48, RULE_ompVar);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(205); match(VAR);
+			setState(195); match(VAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1602,11 +1502,11 @@ public class OMPParser extends Parser {
 
 	public final OmpNumberContext ompNumber() throws RecognitionException {
 		OmpNumberContext _localctx = new OmpNumberContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_ompNumber);
+		enterRule(_localctx, 50, RULE_ompNumber);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(207); match(NUMBER);
+			setState(197); match(NUMBER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1630,10 +1530,10 @@ public class OMPParser extends Parser {
 		}
 		return true;
 	}
-	private boolean sectionsModifier_sempred(SectionsModifierContext _localctx, int predIndex) {
+	private boolean ompParallelModifier_sempred(OmpParallelModifierContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 8: return !((OmpSectionsContext)getInvokingContext(7)).names.contains("schedule");
-		case 9: return !((OmpSectionsContext)getInvokingContext(7)).names.contains("threadNum");
+		case 0: return !((OmpParallelContext)getInvokingContext(1)).names.contains("schedule");
+		case 1: return !((OmpParallelContext)getInvokingContext(1)).names.contains("threadNum");
 		}
 		return true;
 	}
@@ -1641,13 +1541,6 @@ public class OMPParser extends Parser {
 		switch (predIndex) {
 		case 6: return ((OmpSectionsContext)getInvokingContext(7)).names.size() < 2;
 		case 7: return ((OmpSectionsContext)getInvokingContext(7)).names.size() <= 2;
-		}
-		return true;
-	}
-	private boolean ompParallelModifier_sempred(OmpParallelModifierContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 0: return !((OmpParallelContext)getInvokingContext(1)).names.contains("schedule");
-		case 1: return !((OmpParallelContext)getInvokingContext(1)).names.contains("threadNum");
 		}
 		return true;
 	}
@@ -1665,70 +1558,73 @@ public class OMPParser extends Parser {
 		}
 		return true;
 	}
+	private boolean sectionsModifier_sempred(SectionsModifierContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 8: return !((OmpSectionsContext)getInvokingContext(7)).names.contains("schedule");
+		case 9: return !((OmpSectionsContext)getInvokingContext(7)).names.contains("threadNum");
+		}
+		return true;
+	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\33\u00d4\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\31\u00ca\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3"+
-		"\2\3\2\3\2\3\2\3\2\3\2\5\2H\n\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5"+
-		"\4S\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5^\n\5\3\6\3\6\3\6\3\6\3"+
-		"\7\3\7\3\7\3\7\3\7\5\7i\n\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\bt\n"+
-		"\b\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\5\n~\n\n\3\13\3\13\3\13\3\13\3\13\3"+
-		"\13\3\13\3\13\5\13\u0088\n\13\3\f\3\f\7\f\u008c\n\f\f\f\16\f\u008f\13"+
-		"\f\3\r\3\r\3\16\3\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\22\3\22"+
-		"\3\22\5\22\u00a0\n\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27"+
-		"\3\30\3\30\3\30\7\30\u00af\n\30\f\30\16\30\u00b2\13\30\3\30\3\30\3\31"+
-		"\3\31\3\31\3\31\3\31\3\32\3\32\3\32\5\32\u00be\n\32\3\32\3\32\3\32\3\32"+
-		"\3\33\3\33\3\33\3\33\6\33\u00c8\n\33\r\33\16\33\u00c9\3\33\3\33\5\33\u00ce"+
-		"\n\33\3\34\3\34\3\35\3\35\3\35\3\u00b0\2\36\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\36 \"$&(*,.\60\62\64\668\2\3\4\2\4\4\30\30\u00d1\2:\3\2\2\2"+
-		"\4K\3\2\2\2\6R\3\2\2\2\b]\3\2\2\2\n_\3\2\2\2\fh\3\2\2\2\16s\3\2\2\2\20"+
-		"u\3\2\2\2\22}\3\2\2\2\24\u0087\3\2\2\2\26\u0089\3\2\2\2\30\u0090\3\2\2"+
-		"\2\32\u0092\3\2\2\2\34\u0094\3\2\2\2\36\u0096\3\2\2\2 \u0098\3\2\2\2\""+
-		"\u009a\3\2\2\2$\u00a1\3\2\2\2&\u00a3\3\2\2\2(\u00a5\3\2\2\2*\u00a7\3\2"+
-		"\2\2,\u00a9\3\2\2\2.\u00ab\3\2\2\2\60\u00b5\3\2\2\2\62\u00bd\3\2\2\2\64"+
-		"\u00cd\3\2\2\2\66\u00cf\3\2\2\28\u00d1\3\2\2\2:G\7\7\2\2;H\5\4\3\2<H\5"+
-		"\n\6\2=H\5\26\f\2>H\5\20\t\2?H\5\30\r\2@H\5\32\16\2AH\5\34\17\2BH\5\36"+
-		"\20\2CH\5 \21\2DH\5\"\22\2EH\5$\23\2FH\5&\24\2G;\3\2\2\2G<\3\2\2\2G=\3"+
-		"\2\2\2G>\3\2\2\2G?\3\2\2\2G@\3\2\2\2GA\3\2\2\2GB\3\2\2\2GC\3\2\2\2GD\3"+
-		"\2\2\2GE\3\2\2\2GF\3\2\2\2HI\3\2\2\2IJ\7\2\2\3J\3\3\2\2\2KL\7\b\2\2LM"+
-		"\5\6\4\2M\5\3\2\2\2NO\5\b\5\2OP\5\6\4\2PS\3\2\2\2QS\3\2\2\2RN\3\2\2\2"+
-		"RQ\3\2\2\2S\7\3\2\2\2TU\6\5\2\3UV\5.\30\2VW\b\5\1\2W^\3\2\2\2XY\6\5\3"+
-		"\3YZ\5\60\31\2Z[\b\5\1\2[^\3\2\2\2\\^\5\62\32\2]T\3\2\2\2]X\3\2\2\2]\\"+
-		"\3\2\2\2^\t\3\2\2\2_`\7\b\2\2`a\7\t\2\2ab\5\f\7\2b\13\3\2\2\2cd\6\7\4"+
-		"\3de\5\16\b\2ef\5\f\7\2fi\3\2\2\2gi\6\7\5\3hc\3\2\2\2hg\3\2\2\2i\r\3\2"+
-		"\2\2jk\6\b\6\3kl\5.\30\2lm\b\b\1\2mt\3\2\2\2no\6\b\7\3op\5\60\31\2pq\b"+
-		"\b\1\2qt\3\2\2\2rt\5\62\32\2sj\3\2\2\2sn\3\2\2\2sr\3\2\2\2t\17\3\2\2\2"+
-		"uv\7\n\2\2vw\5\22\n\2w\21\3\2\2\2xy\6\n\b\3yz\5\24\13\2z{\5\22\n\2{~\3"+
-		"\2\2\2|~\6\n\t\3}x\3\2\2\2}|\3\2\2\2~\23\3\2\2\2\177\u0080\6\13\n\3\u0080"+
-		"\u0081\5.\30\2\u0081\u0082\b\13\1\2\u0082\u0088\3\2\2\2\u0083\u0084\6"+
-		"\13\13\3\u0084\u0085\5\60\31\2\u0085\u0086\b\13\1\2\u0086\u0088\3\2\2"+
-		"\2\u0087\177\3\2\2\2\u0087\u0083\3\2\2\2\u0088\25\3\2\2\2\u0089\u008d"+
-		"\7\t\2\2\u008a\u008c\5\62\32\2\u008b\u008a\3\2\2\2\u008c\u008f\3\2\2\2"+
-		"\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\27\3\2\2\2\u008f\u008d"+
-		"\3\2\2\2\u0090\u0091\7\13\2\2\u0091\31\3\2\2\2\u0092\u0093\7\f\2\2\u0093"+
-		"\33\3\2\2\2\u0094\u0095\7\r\2\2\u0095\35\3\2\2\2\u0096\u0097\7\16\2\2"+
-		"\u0097\37\3\2\2\2\u0098\u0099\7\17\2\2\u0099!\3\2\2\2\u009a\u009f\7\20"+
-		"\2\2\u009b\u009c\7\6\2\2\u009c\u009d\5\66\34\2\u009d\u009e\7\3\2\2\u009e"+
-		"\u00a0\3\2\2\2\u009f\u009b\3\2\2\2\u009f\u00a0\3\2\2\2\u00a0#\3\2\2\2"+
-		"\u00a1\u00a2\7\21\2\2\u00a2%\3\2\2\2\u00a3\u00a4\7\22\2\2\u00a4\'\3\2"+
-		"\2\2\u00a5\u00a6\7\23\2\2\u00a6)\3\2\2\2\u00a7\u00a8\7\24\2\2\u00a8+\3"+
-		"\2\2\2\u00a9\u00aa\7\25\2\2\u00aa-\3\2\2\2\u00ab\u00ac\7\26\2\2\u00ac"+
-		"\u00b0\7\6\2\2\u00ad\u00af\t\2\2\2\u00ae\u00ad\3\2\2\2\u00af\u00b2\3\2"+
-		"\2\2\u00b0\u00b1\3\2\2\2\u00b0\u00ae\3\2\2\2\u00b1\u00b3\3\2\2\2\u00b2"+
-		"\u00b0\3\2\2\2\u00b3\u00b4\7\3\2\2\u00b4/\3\2\2\2\u00b5\u00b6\7\27\2\2"+
-		"\u00b6\u00b7\7\6\2\2\u00b7\u00b8\58\35\2\u00b8\u00b9\7\3\2\2\u00b9\61"+
-		"\3\2\2\2\u00ba\u00be\5(\25\2\u00bb\u00be\5*\26\2\u00bc\u00be\5,\27\2\u00bd"+
-		"\u00ba\3\2\2\2\u00bd\u00bb\3\2\2\2\u00bd\u00bc\3\2\2\2\u00be\u00bf\3\2"+
-		"\2\2\u00bf\u00c0\7\6\2\2\u00c0\u00c1\5\64\33\2\u00c1\u00c2\7\3\2\2\u00c2"+
-		"\63\3\2\2\2\u00c3\u00ce\5\66\34\2\u00c4\u00c5\5\66\34\2\u00c5\u00c6\7"+
-		"\5\2\2\u00c6\u00c8\3\2\2\2\u00c7\u00c4\3\2\2\2\u00c8\u00c9\3\2\2\2\u00c9"+
-		"\u00c7\3\2\2\2\u00c9\u00ca\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00cc\5\66"+
-		"\34\2\u00cc\u00ce\3\2\2\2\u00cd\u00c3\3\2\2\2\u00cd\u00c7\3\2\2\2\u00ce"+
-		"\65\3\2\2\2\u00cf\u00d0\7\30\2\2\u00d0\67\3\2\2\2\u00d1\u00d2\7\32\2\2"+
-		"\u00d29\3\2\2\2\17GR]hs}\u0087\u008d\u009f\u00b0\u00bd\u00c9\u00cd";
+		"\4\32\t\32\4\33\t\33\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2B"+
+		"\n\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4M\n\4\3\5\3\5\3\5\3\5\3\5"+
+		"\3\5\3\5\3\5\3\5\5\5X\n\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\5\7c\n\7"+
+		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\bn\n\b\3\t\3\t\3\t\3\n\3\n\3\n"+
+		"\3\n\3\n\5\nx\n\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u0082\n"+
+		"\13\3\f\3\f\7\f\u0086\n\f\f\f\16\f\u0089\13\f\3\r\3\r\3\16\3\16\3\17\3"+
+		"\17\3\20\3\20\3\21\3\21\3\22\3\22\3\22\3\22\3\22\5\22\u009a\n\22\3\23"+
+		"\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\26\7\26\u00a5\n\26\f\26\16\26\u00a8"+
+		"\13\26\3\26\3\26\3\27\3\27\3\27\3\27\3\27\3\30\3\30\3\30\5\30\u00b4\n"+
+		"\30\3\30\3\30\3\30\3\30\3\31\3\31\3\31\3\31\6\31\u00be\n\31\r\31\16\31"+
+		"\u00bf\3\31\3\31\5\31\u00c4\n\31\3\32\3\32\3\33\3\33\3\33\3\u00a6\2\34"+
+		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\2\3\4\2\6\6"+
+		"\26\26\u00c7\2\66\3\2\2\2\4E\3\2\2\2\6L\3\2\2\2\bW\3\2\2\2\nY\3\2\2\2"+
+		"\fb\3\2\2\2\16m\3\2\2\2\20o\3\2\2\2\22w\3\2\2\2\24\u0081\3\2\2\2\26\u0083"+
+		"\3\2\2\2\30\u008a\3\2\2\2\32\u008c\3\2\2\2\34\u008e\3\2\2\2\36\u0090\3"+
+		"\2\2\2 \u0092\3\2\2\2\"\u0094\3\2\2\2$\u009b\3\2\2\2&\u009d\3\2\2\2(\u009f"+
+		"\3\2\2\2*\u00a1\3\2\2\2,\u00ab\3\2\2\2.\u00b3\3\2\2\2\60\u00c3\3\2\2\2"+
+		"\62\u00c5\3\2\2\2\64\u00c7\3\2\2\2\66A\7\7\2\2\67B\5\4\3\28B\5\n\6\29"+
+		"B\5\26\f\2:B\5\20\t\2;B\5\30\r\2<B\5\32\16\2=B\5\34\17\2>B\5\36\20\2?"+
+		"B\5 \21\2@B\5\"\22\2A\67\3\2\2\2A8\3\2\2\2A9\3\2\2\2A:\3\2\2\2A;\3\2\2"+
+		"\2A<\3\2\2\2A=\3\2\2\2A>\3\2\2\2A?\3\2\2\2A@\3\2\2\2BC\3\2\2\2CD\7\2\2"+
+		"\3D\3\3\2\2\2EF\7\b\2\2FG\5\6\4\2G\5\3\2\2\2HI\5\b\5\2IJ\5\6\4\2JM\3\2"+
+		"\2\2KM\3\2\2\2LH\3\2\2\2LK\3\2\2\2M\7\3\2\2\2NO\6\5\2\3OP\5*\26\2PQ\b"+
+		"\5\1\2QX\3\2\2\2RS\6\5\3\3ST\5,\27\2TU\b\5\1\2UX\3\2\2\2VX\5.\30\2WN\3"+
+		"\2\2\2WR\3\2\2\2WV\3\2\2\2X\t\3\2\2\2YZ\7\b\2\2Z[\7\t\2\2[\\\5\f\7\2\\"+
+		"\13\3\2\2\2]^\6\7\4\3^_\5\16\b\2_`\5\f\7\2`c\3\2\2\2ac\6\7\5\3b]\3\2\2"+
+		"\2ba\3\2\2\2c\r\3\2\2\2de\6\b\6\3ef\5*\26\2fg\b\b\1\2gn\3\2\2\2hi\6\b"+
+		"\7\3ij\5,\27\2jk\b\b\1\2kn\3\2\2\2ln\5.\30\2md\3\2\2\2mh\3\2\2\2ml\3\2"+
+		"\2\2n\17\3\2\2\2op\7\n\2\2pq\5\22\n\2q\21\3\2\2\2rs\6\n\b\3st\5\24\13"+
+		"\2tu\5\22\n\2ux\3\2\2\2vx\6\n\t\3wr\3\2\2\2wv\3\2\2\2x\23\3\2\2\2yz\6"+
+		"\13\n\3z{\5*\26\2{|\b\13\1\2|\u0082\3\2\2\2}~\6\13\13\3~\177\5,\27\2\177"+
+		"\u0080\b\13\1\2\u0080\u0082\3\2\2\2\u0081y\3\2\2\2\u0081}\3\2\2\2\u0082"+
+		"\25\3\2\2\2\u0083\u0087\7\t\2\2\u0084\u0086\5.\30\2\u0085\u0084\3\2\2"+
+		"\2\u0086\u0089\3\2\2\2\u0087\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\27"+
+		"\3\2\2\2\u0089\u0087\3\2\2\2\u008a\u008b\7\13\2\2\u008b\31\3\2\2\2\u008c"+
+		"\u008d\7\f\2\2\u008d\33\3\2\2\2\u008e\u008f\7\r\2\2\u008f\35\3\2\2\2\u0090"+
+		"\u0091\7\16\2\2\u0091\37\3\2\2\2\u0092\u0093\7\17\2\2\u0093!\3\2\2\2\u0094"+
+		"\u0099\7\20\2\2\u0095\u0096\7\3\2\2\u0096\u0097\5\62\32\2\u0097\u0098"+
+		"\7\4\2\2\u0098\u009a\3\2\2\2\u0099\u0095\3\2\2\2\u0099\u009a\3\2\2\2\u009a"+
+		"#\3\2\2\2\u009b\u009c\7\21\2\2\u009c%\3\2\2\2\u009d\u009e\7\22\2\2\u009e"+
+		"\'\3\2\2\2\u009f\u00a0\7\23\2\2\u00a0)\3\2\2\2\u00a1\u00a2\7\24\2\2\u00a2"+
+		"\u00a6\7\3\2\2\u00a3\u00a5\t\2\2\2\u00a4\u00a3\3\2\2\2\u00a5\u00a8\3\2"+
+		"\2\2\u00a6\u00a7\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a7\u00a9\3\2\2\2\u00a8"+
+		"\u00a6\3\2\2\2\u00a9\u00aa\7\4\2\2\u00aa+\3\2\2\2\u00ab\u00ac\7\25\2\2"+
+		"\u00ac\u00ad\7\3\2\2\u00ad\u00ae\5\64\33\2\u00ae\u00af\7\4\2\2\u00af-"+
+		"\3\2\2\2\u00b0\u00b4\5$\23\2\u00b1\u00b4\5&\24\2\u00b2\u00b4\5(\25\2\u00b3"+
+		"\u00b0\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b2\3\2\2\2\u00b4\u00b5\3\2"+
+		"\2\2\u00b5\u00b6\7\3\2\2\u00b6\u00b7\5\60\31\2\u00b7\u00b8\7\4\2\2\u00b8"+
+		"/\3\2\2\2\u00b9\u00c4\5\62\32\2\u00ba\u00bb\5\62\32\2\u00bb\u00bc\7\5"+
+		"\2\2\u00bc\u00be\3\2\2\2\u00bd\u00ba\3\2\2\2\u00be\u00bf\3\2\2\2\u00bf"+
+		"\u00bd\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\5\62"+
+		"\32\2\u00c2\u00c4\3\2\2\2\u00c3\u00b9\3\2\2\2\u00c3\u00bd\3\2\2\2\u00c4"+
+		"\61\3\2\2\2\u00c5\u00c6\7\26\2\2\u00c6\63\3\2\2\2\u00c7\u00c8\7\30\2\2"+
+		"\u00c8\65\3\2\2\2\17ALWbmw\u0081\u0087\u0099\u00a6\u00b3\u00bf\u00c3";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

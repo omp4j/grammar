@@ -1410,8 +1410,8 @@ VOLATILE : 'volatile';
 WHILE : 'while';
 
 // omp4j thread-id constants
-OMPTHREADNUM  : 'OMP_THREAD_NUM'  ;
-OMPNUMTHREADS : 'OMP_NUM_THREADS' ;
+OMPTHREADNUM  : 'OMP4J_THREAD_NUM'  ;
+OMPNUMTHREADS : 'OMP4J_NUM_THREADS' ;
 
 // §3.10.1 Integer Literals
 
